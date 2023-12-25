@@ -63,6 +63,7 @@ public class CombatCubedMod
         public static void onClientSetup(FMLClientSetupEvent event)
         {
             EntityRenderers.register(AllEntityTypes.PEBBLE.get(), ThrownItemRenderer::new);
+            EntityRenderers.register(AllEntityTypes.THROWN_FIRE_CHARGE.get(), ThrownItemRenderer::new);
         }
     }
 }

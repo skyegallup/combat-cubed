@@ -2,6 +2,7 @@ package com.skyegallup.combatcubed.entities;
 
 import com.skyegallup.combatcubed.CombatCubedMod;
 import com.skyegallup.combatcubed.entities.projectiles.Pebble;
+import com.skyegallup.combatcubed.entities.projectiles.ThrownFireCharge;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -17,5 +18,12 @@ public class AllEntityTypes {
         () -> EntityType.Builder.of((EntityType<Pebble> entityType, Level level) -> new Pebble(entityType, level), MobCategory.MISC)
             .sized(.5f, .5f)
             .build("pebble")
+    );
+
+    public static final DeferredHolder<EntityType<?>, EntityType<ThrownFireCharge>> THROWN_FIRE_CHARGE = ENTITY_TYPES.register(
+        "thrown_fire_charge",
+            () -> EntityType.Builder.of((EntityType<ThrownFireCharge> entityType, Level level) -> new ThrownFireCharge(entityType, level), MobCategory.MISC)
+                .sized(.5f, .5f)
+                .build("thrown_fire_charge")
     );
 }

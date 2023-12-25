@@ -2,6 +2,7 @@ package com.skyegallup.combatcubed.entities.projectiles;
 
 import com.skyegallup.combatcubed.entities.AllEntityTypes;
 import com.skyegallup.combatcubed.items.AllItems;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -14,7 +15,10 @@ import net.minecraft.world.phys.HitResult;
 import org.jetbrains.annotations.NotNull;
 
 public class Pebble extends ThrowableProjectile implements ItemSupplier {
-    private static final float DAMAGE = 7f;
+    public static final float MIN_DAMAGE = 1f;
+    public static final float MAX_DAMAGE = 5f;
+
+    protected float damage = 7f;
 
     public Pebble(EntityType<? extends ThrowableProjectile> entityType, Level level) {
         super(entityType, level);
@@ -28,8 +32,10 @@ public class Pebble extends ThrowableProjectile implements ItemSupplier {
     protected void onHitEntity(@NotNull EntityHitResult hitResult) {
         super.onHitEntity(hitResult);
 
-        Entity entity = hitResult.getEntity();
-        entity.hurt(this.damageSources().thrown(this, this.getOwner()), DAMAGE);
+        if (!this.level().isClientSide) {
+            Entity entity = hitResult.getEntity();
+            entity.hurt(this.damageSources().thrown(this, this.getOwner()), damage);
+        }
     }
 
     @Override
@@ -50,5 +56,9 @@ public class Pebble extends ThrowableProjectile implements ItemSupplier {
     @Override
     public ItemStack getItem() {
         return new ItemStack(AllItems.PEBBLE.get());
+    }
+
+    public void setDamageFromPower(float power) {
+        this.damage = MIN_DAMAGE + ((MAX_DAMAGE - MIN_DAMAGE) * Mth.clamp(power, 0f, 1f));
     }
 }

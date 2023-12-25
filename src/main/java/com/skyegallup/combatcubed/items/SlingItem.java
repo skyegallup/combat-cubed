@@ -1,6 +1,7 @@
 package com.skyegallup.combatcubed.items;
 
 import com.skyegallup.combatcubed.entities.projectiles.Pebble;
+import com.skyegallup.combatcubed.entities.projectiles.ThrownFireCharge;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -65,7 +66,7 @@ public class SlingItem extends ProjectileWeaponItem implements Vanishable {
                     projectileItemStack = new ItemStack(AllItems.PEBBLE.get());
                 }
 
-                float powerF = 1f;
+                float powerF = getPowerForTime(power);
                 if (powerF > 0.1f) {  // require the shot to be at least a little charged
                     if (!level.isClientSide) {
                         // per-projectile handling
@@ -74,7 +75,7 @@ public class SlingItem extends ProjectileWeaponItem implements Vanishable {
                         } else if (projectileItemStack.is(Items.SPLASH_POTION) || projectileItemStack.is(Items.LINGERING_POTION)) {
                             this.launchPotion(projectileItemStack, level, player, powerF);
                         } else if (projectileItemStack.is(Items.FIRE_CHARGE)) {
-                            this.launchFireCharge();
+                            this.launchFireCharge(level, player, powerF);
                         }
 
                         itemStack.hurtAndBreak(1, player, _player -> _player.broadcastBreakEvent(player.getUsedItemHand()));
@@ -112,6 +113,7 @@ public class SlingItem extends ProjectileWeaponItem implements Vanishable {
         float power
     ) {
         Pebble pebble = new Pebble(level, player);
+        pebble.setDamageFromPower(power);
         pebble.shootFromRotation(player, player.getXRot(), player.getYRot(), -10f, power + .3f, 1f);
         level.addFreshEntity(pebble);
     }
@@ -128,8 +130,15 @@ public class SlingItem extends ProjectileWeaponItem implements Vanishable {
         level.addFreshEntity(thrownPotion);
     }
 
-    protected void launchFireCharge() {
-        throw new NotImplementedException();
+    protected void launchFireCharge(
+        Level level,
+        Player player,
+        float power
+    ) {
+        ThrownFireCharge charge = new ThrownFireCharge(level, player);
+        charge.setDamageFromPower(power);
+        charge.shootFromRotation(player, player.getXRot(), player.getYRot(), -10f, power + .3f, 1f);
+        level.addFreshEntity(charge);
     }
 
     @Override
@@ -139,6 +148,17 @@ public class SlingItem extends ProjectileWeaponItem implements Vanishable {
             || item.is(Items.LINGERING_POTION)
             || item.is(AllItems.PEBBLE.get())
             || item.is(Items.FIRE_CHARGE);
+    }
+
+    public static float getPowerForTime(int duration) {
+        float seconds = (float)duration / 20.0F;
+
+        seconds = seconds * seconds + seconds;
+        if (seconds > 1.0F) {
+            seconds = 1.0F;
+        }
+
+        return seconds;
     }
 
     @Override
