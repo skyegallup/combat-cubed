@@ -1,5 +1,6 @@
 package com.skyegallup.combatcubed.items;
 
+import com.skyegallup.combatcubed.entities.projectiles.Pebble;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -68,8 +69,8 @@ public class SlingItem extends ProjectileWeaponItem implements Vanishable {
                 if (powerF > 0.1f) {  // require the shot to be at least a little charged
                     if (!level.isClientSide) {
                         // per-projectile handling
-                        if (projectileItemStack.is(AllItems.PEBBLE)) {
-                            this.launchPebble();
+                        if (projectileItemStack.is(AllItems.PEBBLE.get())) {
+                            this.launchPebble(level, player, powerF);
                         } else if (projectileItemStack.is(Items.SPLASH_POTION) || projectileItemStack.is(Items.LINGERING_POTION)) {
                             this.launchPotion(projectileItemStack, level, player, powerF);
                         } else if (projectileItemStack.is(Items.FIRE_CHARGE)) {
@@ -105,8 +106,14 @@ public class SlingItem extends ProjectileWeaponItem implements Vanishable {
         }
     }
 
-    protected void launchPebble() {
-        throw new NotImplementedException();
+    protected void launchPebble(
+        Level level,
+        Player player,
+        float power
+    ) {
+        Pebble pebble = new Pebble(level, player);
+        pebble.shootFromRotation(player, player.getXRot(), player.getYRot(), -10f, power + .3f, 1f);
+        level.addFreshEntity(pebble);
     }
 
     protected void launchPotion(
@@ -130,7 +137,7 @@ public class SlingItem extends ProjectileWeaponItem implements Vanishable {
         // TODO: add a "slingable" tag
         return item -> item.is(Items.SPLASH_POTION)
             || item.is(Items.LINGERING_POTION)
-            || item.is(AllItems.PEBBLE)
+            || item.is(AllItems.PEBBLE.get())
             || item.is(Items.FIRE_CHARGE);
     }
 

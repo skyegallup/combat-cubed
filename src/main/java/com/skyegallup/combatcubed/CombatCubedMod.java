@@ -1,7 +1,10 @@
 package com.skyegallup.combatcubed;
 
 import com.mojang.logging.LogUtils;
+import com.skyegallup.combatcubed.entities.AllEntityTypes;
 import com.skyegallup.combatcubed.items.AllItems;
+import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -28,6 +31,7 @@ public class CombatCubedMod
     {
         modEventBus.addListener(this::commonSetup);
 
+        AllEntityTypes.ENTITY_TYPES.register(modEventBus);
         AllItems.ITEMS.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);
@@ -58,7 +62,7 @@ public class CombatCubedMod
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-
+            EntityRenderers.register(AllEntityTypes.PEBBLE.get(), ThrownItemRenderer::new);
         }
     }
 }
