@@ -12,6 +12,7 @@ Combat Cubed is a Minecraft NeoForged mod that adds more combat items and mechan
   - [X] Pebbles as ammo
   - [X] Firing potions from slings
   - [X] Firing fire charges from slings
+  - [ ] Animated item, like a bow
   - [ ] Compatible enchants: Unbreaking, Mending, Guidance
 - [ ] Obsidian Arrows: deal 3 extra points of damage
 - [ ] New potions/effects:

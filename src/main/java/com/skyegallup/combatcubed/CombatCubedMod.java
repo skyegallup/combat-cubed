@@ -1,6 +1,7 @@
 package com.skyegallup.combatcubed;
 
 import com.mojang.logging.LogUtils;
+import com.skyegallup.combatcubed.enchantments.AllEnchantments;
 import com.skyegallup.combatcubed.entities.AllEntityTypes;
 import com.skyegallup.combatcubed.items.AllItems;
 import net.minecraft.client.renderer.entity.EntityRenderers;
@@ -31,6 +32,7 @@ public class CombatCubedMod
     {
         modEventBus.addListener(this::commonSetup);
 
+        AllEnchantments.ENCHANTMENTS.register(modEventBus);
         AllEntityTypes.ENTITY_TYPES.register(modEventBus);
         AllItems.ITEMS.register(modEventBus);
 

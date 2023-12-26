@@ -14,6 +14,7 @@ import net.minecraft.world.level.block.BaseFireBlock;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.neoforged.neoforge.event.EventHooks;
+import org.jetbrains.annotations.NotNull;
 
 public class ThrownFireCharge extends Pebble {
     public ThrownFireCharge(EntityType<? extends ThrowableProjectile> entityType, Level level) {
@@ -25,12 +26,15 @@ public class ThrownFireCharge extends Pebble {
     }
 
     @Override
-    protected void onHitEntity(EntityHitResult hitResult) {
+    protected void onHitEntity(@NotNull EntityHitResult hitResult) {
         super.onHitEntity(hitResult);
 
         if (!this.level().isClientSide) {
-            Entity hitEntity = hitResult.getEntity();
-            hitEntity.setSecondsOnFire(5);
+            LivingEntity owner = (LivingEntity)this.getOwner();
+            Entity target = hitResult.getEntity();
+            if (!(owner != null && isGuided(owner) && areEntitiesAligned(target, owner))) {
+                target.setSecondsOnFire(5);
+            }
         }
     }
 

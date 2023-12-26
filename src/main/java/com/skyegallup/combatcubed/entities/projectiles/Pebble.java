@@ -14,7 +14,9 @@ import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import org.jetbrains.annotations.NotNull;
 
-public class Pebble extends ThrowableProjectile implements ItemSupplier {
+import java.util.function.Supplier;
+
+public class Pebble extends ThrowableProjectile implements ItemSupplier, IGuided {
     public static final float MIN_DAMAGE = 1f;
     public static final float MAX_DAMAGE = 5f;
 
@@ -33,8 +35,11 @@ public class Pebble extends ThrowableProjectile implements ItemSupplier {
         super.onHitEntity(hitResult);
 
         if (!this.level().isClientSide) {
-            Entity entity = hitResult.getEntity();
-            entity.hurt(this.damageSources().thrown(this, this.getOwner()), damage);
+            LivingEntity owner = (LivingEntity)this.getOwner();
+            Entity target = hitResult.getEntity();
+            if (!(owner != null && isGuided(owner) && areEntitiesAligned(target, owner))) {
+                target.hurt(this.damageSources().thrown(this, this.getOwner()), damage);
+            }
         }
     }
 
