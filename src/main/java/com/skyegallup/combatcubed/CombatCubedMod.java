@@ -4,14 +4,17 @@ import com.mojang.logging.LogUtils;
 import com.skyegallup.combatcubed.enchantments.AllEnchantments;
 import com.skyegallup.combatcubed.entities.AllEntityTypes;
 import com.skyegallup.combatcubed.items.AllItems;
+import com.skyegallup.combatcubed.render.ObsidianArrowRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.common.CreativeModeTabRegistry;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
@@ -31,6 +34,7 @@ public class CombatCubedMod
     public CombatCubedMod(IEventBus modEventBus)
     {
         modEventBus.addListener(this::commonSetup);
+        modEventBus.addListener(this::addCreative);
 
         AllEnchantments.ENCHANTMENTS.register(modEventBus);
         AllEntityTypes.ENTITY_TYPES.register(modEventBus);
@@ -47,7 +51,11 @@ public class CombatCubedMod
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
-
+        if (event.getTabKey() == CreativeModeTabs.COMBAT) {
+            event.accept(AllItems.OBSIDIAN_ARROW.get());
+            event.accept(AllItems.PEBBLE.get());
+            event.accept(AllItems.SLING.get());
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
@@ -64,6 +72,7 @@ public class CombatCubedMod
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
+            EntityRenderers.register(AllEntityTypes.OBSIDIAN_ARROW.get(), ObsidianArrowRenderer::new);
             EntityRenderers.register(AllEntityTypes.PEBBLE.get(), ThrownItemRenderer::new);
             EntityRenderers.register(AllEntityTypes.THROWN_FIRE_CHARGE.get(), ThrownItemRenderer::new);
         }

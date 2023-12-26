@@ -14,7 +14,7 @@ Combat Cubed is a Minecraft NeoForged mod that adds more combat items and mechan
   - [X] Firing fire charges from slings
   - [ ] Animated item, like a bow
   - [X] Compatible enchants: Unbreaking, Mending, Guidance
-- [ ] Obsidian Arrows: deal 3 extra points of damage
+- [X] Obsidian Arrows: deal ~25% extra damage, but no potion effects
 - [ ] New potions/effects:
   - [ ] Potion of the Giant: grants Grow I/II and Extra Health I/II for 1/2 minutes
     - Grow effect: +20% larger size per level
