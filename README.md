@@ -15,11 +15,11 @@ Combat Cubed is a Minecraft NeoForged mod that adds more combat items and mechan
   - [ ] Animated item, like a bow
   - [X] Compatible enchants: Unbreaking, Mending, Guidance
 - [X] Obsidian Arrows: deal ~25% extra damage, but no potion effects
-- [ ] New potions/effects:
-  - [ ] Potion of the Giant: grants Grow I/II and Extra Health I/II for 1/2 minutes
-    - Grow effect: +20% larger size per level
+- [X] New potions/effects:
+  - [X] Potion of the Giant: grants Grow I/II and Health Boost I/II for 1/2 minutes
+    - Grow effect: +20% larger size per level (upcoming 1.20.5)
     - Brewed using a golden apple
-- [ ] New enchants:
+- [X] New enchants:
   - [X] Frost Aspect: applies the powder snow freezing effect + Mining Fatigue I for 4/8 seconds
     - Can be applied to axes
     - Levels I-II (duration scales with level)

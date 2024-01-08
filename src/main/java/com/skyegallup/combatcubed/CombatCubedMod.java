@@ -1,6 +1,8 @@
 package com.skyegallup.combatcubed;
 
 import com.mojang.logging.LogUtils;
+import com.skyegallup.combatcubed.alchemy.AllPotionRecipes;
+import com.skyegallup.combatcubed.alchemy.AllPotions;
 import com.skyegallup.combatcubed.enchantments.AllEnchantments;
 import com.skyegallup.combatcubed.enchantments.EnchantmentEffectHandlers;
 import com.skyegallup.combatcubed.entities.AllEntityTypes;
@@ -39,6 +41,7 @@ public class CombatCubedMod
         AllEnchantments.ENCHANTMENTS.register(modEventBus);
         AllEntityTypes.ENTITY_TYPES.register(modEventBus);
         AllItems.ITEMS.register(modEventBus);
+        AllPotions.POTIONS.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);
         NeoForge.EVENT_BUS.addListener(EnchantmentEffectHandlers::onLivingAttack);
@@ -46,7 +49,7 @@ public class CombatCubedMod
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
-
+        event.enqueueWork(AllPotionRecipes::addPotionRecipes);
     }
 
     // Add the example block item to the building blocks tab

@@ -3,5 +3,8 @@
   "enchantment.combat_cubed.guidance": "Guidance",
   "item.combat_cubed.obsidian_arrow": "Obsidian Arrow",
   "item.combat_cubed.pebble": "Pebble",
-  "item.combat_cubed.sling": "Sling"
+  "item.combat_cubed.sling": "Sling",
+  "item.minecraft.lingering_potion.effect.giant":  "Lingering Potion of the Giant",
+  "item.minecraft.potion.effect.giant":  "Potion of the Giant",
+  "item.minecraft.splash_potion.effect.giant":  "Splash Potion of the Giant"
 }
