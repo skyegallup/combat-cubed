@@ -20,9 +20,9 @@ Combat Cubed is a Minecraft NeoForged mod that adds more combat items and mechan
     - Grow effect: +20% larger size per level
     - Brewed using a golden apple
 - [ ] New enchants:
-  - [ ] Frost Aspect: applies the powder snow freezing effect + Mining Fatigue I/II for 6 seconds
+  - [X] Frost Aspect: applies the powder snow freezing effect + Mining Fatigue I for 4/8 seconds
     - Can be applied to axes
-    - Levels I-II (Mining Fatigue scales with level)
+    - Levels I-II (duration scales with level)
   - [X] Guidance: projectiles only affect the "correct team"
     - e.g. instant damage potions affect enemies; instant healing potions affect teammates
     - Can be applied to slings

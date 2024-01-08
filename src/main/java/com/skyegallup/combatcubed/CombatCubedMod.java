@@ -2,6 +2,7 @@ package com.skyegallup.combatcubed;
 
 import com.mojang.logging.LogUtils;
 import com.skyegallup.combatcubed.enchantments.AllEnchantments;
+import com.skyegallup.combatcubed.enchantments.EnchantmentEffectHandlers;
 import com.skyegallup.combatcubed.entities.AllEntityTypes;
 import com.skyegallup.combatcubed.items.AllItems;
 import com.skyegallup.combatcubed.render.ObsidianArrowRenderer;
@@ -14,7 +15,6 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.neoforge.common.CreativeModeTabRegistry;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
@@ -41,6 +41,7 @@ public class CombatCubedMod
         AllItems.ITEMS.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);
+        NeoForge.EVENT_BUS.addListener(EnchantmentEffectHandlers::onLivingAttack);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
