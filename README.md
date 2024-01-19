@@ -6,19 +6,29 @@ Combat Cubed is a Minecraft NeoForged mod that adds more combat items and mechan
 
 # Feature Progress
 
-- [ ] Bolas
-  - [ ] Firing bolas from crossbows
-- [X] Slings
-  - [X] Pebbles as ammo
-  - [X] Firing potions from slings
-  - [X] Firing fire charges from slings
-  - [ ] Animated item, like a bow
-  - [X] Compatible enchants: Unbreaking, Mending, Guidance
-- [X] Obsidian Arrows: deal ~25% extra damage, but no potion effects
-- [X] New potions/effects:
+- New items:
+  - [ ] Bolas: throwable that applies Snare for 5 seconds
+  - [X] Slings: weapon for throwing certain throwable items further
+    - [X] Pebbles as ammo
+    - [X] Firing potions from slings
+    - [X] Firing fire charges from slings
+    - [ ] Animated item, like a bow
+    - [X] Compatible enchants: Unbreaking, Mending, Guidance
+  - [X] Obsidian Arrows: deal ~25% extra damage, but no potion effects
   - [X] Potion of the Giant: grants Grow I/II and Health Boost I/II for 1/2 minutes
     - Grow effect: +20% larger size per level (upcoming 1.20.5)
     - Brewed using a golden apple
+- New blocks:
+  - [ ] Ballista: mounted crossbow turret
+    - Fires further and deals more damage than a crossbow
+    - Fires bolas REALLY far
+    - Can be enchanted with all crossbow enchants
+    - Takes damage like an entity to destroy
+      - (Probably need to implement this as a rideable entity?)
+    - Pilotable by snow golems to automatically attack mobs
+- [ ] New effects:
+  - Snare: 10% slow, disables sprinting and flying
+- [ ] Allow Thorns enchant on shields
 - [X] New enchants:
   - [X] Frost Aspect: applies the powder snow freezing effect + Mining Fatigue I for 4/8 seconds
     - Can be applied to axes
@@ -27,3 +37,6 @@ Combat Cubed is a Minecraft NeoForged mod that adds more combat items and mechan
     - e.g. instant damage potions affect enemies; instant healing potions affect teammates
     - Can be applied to slings
     - Only one level, like Infinity
+  - [ ] Recovery: decreases shield recovery time by 10/15/20%
+    - Can be applied to shields
+    - Levels I-III (decrease scales with level)
