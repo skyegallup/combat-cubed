@@ -29,6 +29,7 @@ Combat Cubed is a Minecraft NeoForged mod that adds more combat items and mechan
 - [ ] New effects:
   - Snare: 10% slow, disables sprinting and flying
 - [ ] Allow Thorns enchant on shields
+  - Thorns effect only applies while actively shielding
 - [X] New enchants:
   - [X] Frost Aspect: applies the powder snow freezing effect + Mining Fatigue I for 4/8 seconds
     - Can be applied to axes
@@ -40,3 +41,9 @@ Combat Cubed is a Minecraft NeoForged mod that adds more combat items and mechan
   - [ ] Recovery: decreases shield recovery time by 10/15/20%
     - Can be applied to shields
     - Levels I-III (decrease scales with level)
+    - Mutually exclusive with Thorns
+  - [ ] Magic Protection: Reduces negative duration effects' durations by (5 x level)%, and negative instant effects by (5 x level)%
+    - Can be applied to helmets, chestplates, leggings, and boots
+    - Reduction is capped at -50% duration and -65% instant effects
+    - Levels I-IV (reduction scales with level)
+    - Mutually exclusive with Protection, Blast Protection, Fire Protection, Feather Falling, and Projectile Protection
