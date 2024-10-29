@@ -26,8 +26,8 @@ Combat Cubed is a Minecraft NeoForged mod that adds more combat items and mechan
     - Takes damage like an entity to destroy
       - (Probably need to implement this as a rideable entity?)
     - Pilotable by snow golems to automatically attack mobs
-- [ ] New effects:
-  - Snare: 10% slow, disables sprinting and flying
+- [X] New effects:
+  - [X] Snare: 10% slow, disables sprinting and flying
 - [ ] Allow Thorns enchant on shields
   - Thorns effect only applies while actively shielding
 - [X] New enchants:
