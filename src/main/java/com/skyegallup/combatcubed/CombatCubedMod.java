@@ -3,6 +3,7 @@ package com.skyegallup.combatcubed;
 import com.mojang.logging.LogUtils;
 import com.skyegallup.combatcubed.alchemy.AllPotionRecipes;
 import com.skyegallup.combatcubed.alchemy.AllPotions;
+import com.skyegallup.combatcubed.effects.AllEffects;
 import com.skyegallup.combatcubed.enchantments.AllEnchantments;
 import com.skyegallup.combatcubed.enchantments.EnchantmentEffectHandlers;
 import com.skyegallup.combatcubed.entities.AllEntityTypes;
@@ -11,6 +12,7 @@ import com.skyegallup.combatcubed.render.ObsidianArrowRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.ElytraItem;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -38,6 +40,7 @@ public class CombatCubedMod
         modEventBus.addListener(this::commonSetup);
         modEventBus.addListener(this::addCreative);
 
+        AllEffects.EFFECTS.register(modEventBus);
         AllEnchantments.ENCHANTMENTS.register(modEventBus);
         AllEntityTypes.ENTITY_TYPES.register(modEventBus);
         AllItems.ITEMS.register(modEventBus);
