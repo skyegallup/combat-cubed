@@ -38,7 +38,7 @@ Combat Cubed is a Minecraft NeoForged mod that adds more combat items and mechan
     - e.g. instant damage potions affect enemies; instant healing potions affect teammates
     - Can be applied to slings
     - Only one level, like Infinity
-  - [ ] Recovery: decreases shield recovery time by 10/15/20%
+  - [X] Recovery: decreases shield recovery time by 10/15/20%
     - Can be applied to shields
     - Levels I-III (decrease scales with level)
     - Mutually exclusive with Thorns

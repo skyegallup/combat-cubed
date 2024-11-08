@@ -19,4 +19,9 @@ public class AllEnchantments {
         "guidance",
         () -> new GuidanceEnchantment(Enchantment.Rarity.RARE, new EquipmentSlot[] {EquipmentSlot.MAINHAND })
     );
+
+    public static DeferredHolder<Enchantment, RecoveryEnchantment> RECOVERY = ENCHANTMENTS.register(
+            "recovery",
+            () -> new RecoveryEnchantment(Enchantment.Rarity.RARE, new EquipmentSlot[] { EquipmentSlot.OFFHAND })
+    );
 }

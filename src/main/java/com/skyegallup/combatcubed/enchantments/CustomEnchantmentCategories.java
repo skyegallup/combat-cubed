@@ -2,6 +2,7 @@ package com.skyegallup.combatcubed.enchantments;
 
 import com.skyegallup.combatcubed.items.AllItems;
 import net.minecraft.world.item.AxeItem;
+import net.minecraft.world.item.ShieldItem;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 
 public class CustomEnchantmentCategories {
@@ -12,6 +13,11 @@ public class CustomEnchantmentCategories {
     public static final EnchantmentCategory AXES = EnchantmentCategory.create(
         "axe_enchants",
         item -> item instanceof AxeItem
+    );
+
+    public static final EnchantmentCategory SHIELDS = EnchantmentCategory.create(
+        "shield_enchants",
+        item -> item instanceof ShieldItem
     );
 
     /**

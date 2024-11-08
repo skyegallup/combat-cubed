@@ -3,6 +3,7 @@
   "package": "com.skyegallup.combatcubed.mixins",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "PlayerMixins",
     "ThrownPotionMixins"
   ],
   "client": [
