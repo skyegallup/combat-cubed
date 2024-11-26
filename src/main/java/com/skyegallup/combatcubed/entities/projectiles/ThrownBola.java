@@ -8,21 +8,29 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.ItemSupplier;
+import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.entity.projectile.ThrowableProjectile;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 
-public class ThrownBola extends ThrowableProjectile implements ItemSupplier {
-    public ThrownBola(EntityType<? extends ThrowableProjectile> entityType, Level level) {
+public class ThrownBola extends ThrowableItemProjectile {
+    public ThrownBola(EntityType<? extends ThrowableItemProjectile> entityType, Level level) {
         super(entityType, level);
     }
 
     public ThrownBola(Level level, LivingEntity entity) {
         super(AllEntityTypes.THROWN_BOLA.get(), entity, level);
+    }
+
+    @Override
+    protected Item getDefaultItem() {
+        return AllItems.BOLA.get();
     }
 
     @Override
@@ -55,9 +63,8 @@ public class ThrownBola extends ThrowableProjectile implements ItemSupplier {
 
         // Apply slow falling behavior (borrowed from Chicken class)
         Vec3 vec3 = this.getDeltaMovement();
-        if (vec3.y < 0.0) {
-            this.setDeltaMovement(vec3.multiply(1.0, 0.7, 1.0));
-        }
+        vec3 = vec3.add(new Vec3(0.0, 0.012, 0.0));
+        this.setDeltaMovement(vec3);
     }
 
     @Override

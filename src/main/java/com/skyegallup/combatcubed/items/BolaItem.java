@@ -34,7 +34,7 @@ public class BolaItem extends Item {
         if (!level.isClientSide) {
             ThrownBola thrownBola = new ThrownBola(level, player);
             // thrownBola.setItem(itemStack);
-            thrownBola.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 1.4F, 0.5F);
+            thrownBola.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 1.0F, 0.3F);
             level.addFreshEntity(thrownBola);
         }
 

@@ -59,6 +59,7 @@ public class CombatCubedMod
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
         if (event.getTabKey() == CreativeModeTabs.COMBAT) {
+            event.accept(AllItems.BOLA.get());
             event.accept(AllItems.OBSIDIAN_ARROW.get());
             event.accept(AllItems.PEBBLE.get());
             event.accept(AllItems.SLING.get());
@@ -79,6 +80,7 @@ public class CombatCubedMod
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
+            EntityRenderers.register(AllEntityTypes.THROWN_BOLA.get(), ThrownItemRenderer::new);
             EntityRenderers.register(AllEntityTypes.OBSIDIAN_ARROW.get(), ObsidianArrowRenderer::new);
             EntityRenderers.register(AllEntityTypes.PEBBLE.get(), ThrownItemRenderer::new);
             EntityRenderers.register(AllEntityTypes.THROWN_FIRE_CHARGE.get(), ThrownItemRenderer::new);
