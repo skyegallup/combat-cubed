@@ -8,6 +8,7 @@ Combat Cubed is a Minecraft NeoForged mod that adds more combat items and mechan
 
 - New items:
   - [ ] Bolas: throwable that applies Snare for 5 seconds
+    - [ ] Has a 4 second cooldown
   - [X] Slings: weapon for throwing certain throwable items further
     - [X] Pebbles as ammo
     - [X] Firing potions from slings
@@ -29,7 +30,7 @@ Combat Cubed is a Minecraft NeoForged mod that adds more combat items and mechan
 - [X] New effects:
   - [X] Snare: 10% slow, disables sprinting and flying
 - [ ] Allow Thorns enchant on shields
-  - Thorns effect only applies while actively shielding
+  - [ ] Thorns effect only applies while actively shielding
 - [X] New enchants:
   - [X] Frost Aspect: applies the powder snow freezing effect + Mining Fatigue I for 4/8 seconds
     - Can be applied to axes

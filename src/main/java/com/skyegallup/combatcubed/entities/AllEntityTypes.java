@@ -3,6 +3,7 @@ package com.skyegallup.combatcubed.entities;
 import com.skyegallup.combatcubed.CombatCubedMod;
 import com.skyegallup.combatcubed.entities.projectiles.ObsidianArrow;
 import com.skyegallup.combatcubed.entities.projectiles.Pebble;
+import com.skyegallup.combatcubed.entities.projectiles.ThrownBola;
 import com.skyegallup.combatcubed.entities.projectiles.ThrownFireCharge;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.EntityType;
@@ -30,6 +31,15 @@ public class AllEntityTypes {
             .clientTrackingRange(4)
             .updateInterval(20)
             .build("pebble")
+    );
+
+    public static final DeferredHolder<EntityType<?>, EntityType<ThrownBola>> THROWN_BOLA = ENTITY_TYPES.register(
+        "thrown_bola",
+        () -> EntityType.Builder.of((EntityType<ThrownBola> entityType, Level level) -> new ThrownBola(entityType, level), MobCategory.MISC)
+            .sized(.75f, .5f)
+            .clientTrackingRange(4)
+            .updateInterval(20)
+            .build("thrown_bola")
     );
 
     public static final DeferredHolder<EntityType<?>, EntityType<ThrownFireCharge>> THROWN_FIRE_CHARGE = ENTITY_TYPES.register(

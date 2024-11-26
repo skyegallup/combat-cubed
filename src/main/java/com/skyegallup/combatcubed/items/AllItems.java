@@ -8,6 +8,12 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public class AllItems {
     public static DeferredRegister.Items ITEMS = DeferredRegister.createItems(CombatCubedMod.ID);
 
+    public static DeferredItem<BolaItem> BOLA = ITEMS.registerItem(
+        "bola",
+        BolaItem::new,
+        new Item.Properties().stacksTo(16)
+    );
+
     public static DeferredItem<ObsidianArrowItem> OBSIDIAN_ARROW = ITEMS.registerItem(
         "obsidian_arrow",
         ObsidianArrowItem::new,
