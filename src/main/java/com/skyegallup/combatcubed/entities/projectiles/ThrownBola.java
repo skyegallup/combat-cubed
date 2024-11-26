@@ -56,7 +56,7 @@ public class ThrownBola extends ThrowableProjectile implements ItemSupplier {
         // Apply slow falling behavior (borrowed from Chicken class)
         Vec3 vec3 = this.getDeltaMovement();
         if (vec3.y < 0.0) {
-            this.setDeltaMovement(vec3.multiply(1.0, 0.6, 1.0));
+            this.setDeltaMovement(vec3.multiply(1.0, 0.7, 1.0));
         }
     }
 
