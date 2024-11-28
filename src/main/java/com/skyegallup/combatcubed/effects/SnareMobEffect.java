@@ -14,6 +14,12 @@ public class SnareMobEffect extends MobEffect {
     }
 
     @Override
+    public void onEffectStarted(@NotNull LivingEntity entity, int amplifier) {
+        super.onEffectStarted(entity, amplifier);
+        entity.setSprinting(false);
+    }
+
+    @Override
     public void applyEffectTick(@NotNull LivingEntity entity, int amplifier) {
         if (entity instanceof Player) {
             ((Player) entity).stopFallFlying();
