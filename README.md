@@ -7,8 +7,9 @@ Combat Cubed is a Minecraft NeoForged mod that adds more combat items and mechan
 # Feature Progress
 
 - New items:
-  - [ ] Bolas: throwable that applies Snare for 5 seconds
-    - [ ] Has a 4 second cooldown
+  - [X] Bolas: throwable that applies Snare for 5 seconds
+    - [X] Has a 4 second cooldown
+    - [ ] TODO: implement textures and animations
   - [X] Slings: weapon for throwing certain throwable items further
     - [X] Pebbles as ammo
     - [X] Firing potions from slings
