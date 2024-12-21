@@ -5,6 +5,7 @@
   "mixins": [
     "LivingEntityMixins",
     "PlayerMixins",
+    "ThornsEnchantmentMixins",
     "ThrownPotionMixins"
   ],
   "client": [
