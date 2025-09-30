@@ -1,0 +1,41 @@
+{
+	"schemaVersion": 1,
+	"id": "combat-cubed",
+	"version": "${version}",
+	"name": "Combat Cubed",
+	"description": "A vanilla-like set of combat items and mechanics.",
+	"authors": [
+		"skyebound"
+	],
+	"contact": {
+		"homepage": "https://github.com/skyegallup/combat-cubed",
+		"sources": "https://github.com/skyegallup/combat-cubed"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/combat-cubed/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.skyegallup.combatcubed.CombatCubed"
+		],
+		"client": [
+			"com.skyegallup.combatcubed.CombatCubedClient"
+		],
+		"fabric-datagen": [
+			"com.skyegallup.combatcubed.CombatCubedDataGenerator"
+		]
+	},
+	"mixins": [
+		"combat-cubed.mixins.json",
+		{
+			"config": "combat-cubed.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.17.2",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	}
+}
